@@ -39,6 +39,7 @@ Note:
 
 # Modeling
 ====================
+
 My modeling jupyter notebook file is in `scripts/sale_prediction_script.ipynb`
 
 # Some deployment patterns fit to this situation, and my choice to implement.
