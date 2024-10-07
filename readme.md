@@ -34,6 +34,7 @@ To run the code, follow these steps:
 
 Note:
 - Make sure you have Docker and Docker Compose installed on your system before running the code.
+- Make sure that you copied all files into the `data` folder. The model needs lag features, so that it needs the historical data for prediction.
 - Make sure that there is no application running on 8000 and 8080 port.
 
 # Modeling
