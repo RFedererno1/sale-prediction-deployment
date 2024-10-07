@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  main_app:
+    build:
+      context: .
+      dockerfile: fastapi.Dockerfile
+    command: bash -c "sleep 5 && python -m uvicorn --host 0.0.0.0 app.main:app & streamlit run UI.py --server.port 8080"
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+    depends_on:
+      - rabbitmq
+      - redis
+    # environment:
+    #   - WAIT_HOSTS=rabbitmq:5672
+    #   - WAIT_HOSTS_TIMEOUT=60
+    #   - WAIT_SLEEP_INTERVAL=5
+    #   - WAIT_HOST_CONNECT_TIMEOUT=10
+
+
+  rabbitmq:
+    image: rabbitmq:3.8-rc-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: 123456
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+  rabbitmq_consumer:
+    build:
+      context: .
+      dockerfile: rabbitmq_consumer.Dockerfile
+    command: bash -c "sleep 7 && python -m consumer.inference"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    depends_on:
+      - rabbitmq
+      - main_app
+
+    stdin_open: true

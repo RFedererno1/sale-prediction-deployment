@@ -1,0 +1,14 @@
+fastapi
+numpy
+opencv-python
+pandas
+pika
+pillow
+pydantic
+python-dotenv
+python-multipart
+redis
+scikit-learn
+streamlit
+uvicorn
+xgboost
