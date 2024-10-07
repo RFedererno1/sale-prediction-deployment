@@ -63,7 +63,7 @@ if st.button("Predict"):
                     predicted_value = dict(sorted(predicted_value.items()))
                     # Create a DataFrame from the result
                     prediction_df = pd.DataFrame(predicted_value.items(), columns=['Shop ID', 'Sell Predcition'])
-                    st.write("### Sale prediction for 11/2015 for item {item_id}:")
+                    st.write(f"### Sale prediction for 11/2015 for item {item_id}:")
                     st.table(prediction_df)
                 else:
                     st.error("No prediction result received yet. Please try again later.")
