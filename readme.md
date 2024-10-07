@@ -26,10 +26,11 @@ Our codebase is organized into the following folders:
 To run the code, follow these steps:
 
 1. Navigate to the root directory of the codebase
-2. Run the command `docker-compose up --build` to start the Docker containers
-3. The UI will be exposed on port `8080` (or the port specified in the `docker-compose.yml` file)
-4. Wait until the line: "INFO:    Done loading model" appears in the terminal.
-5. Access the UI by navigating to `http://localhost:8080` in your web browser and start for usage.
+2. *Copy all files*: train.csv, test.csv, items.csv, item_categories.csv, shops.csv into the `data` folder
+3. Run the command `docker-compose up --build` to start the Docker containers
+4. The UI will be exposed on port `8080` (or the port specified in the `docker-compose.yml` file)
+5. Wait until the line: "INFO:    Done loading model" appears in the terminal.
+6. Access the UI by navigating to `http://localhost:8080` in your web browser and start for usage.
 
 Note:
 - Make sure you have Docker and Docker Compose installed on your system before running the code.
