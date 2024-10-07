@@ -51,7 +51,7 @@ Several deployment patterns can suit this situation. Since it is for internal us
 Given the limited number of internal users, handling a high volume of requests isn't a concern. Therefore, FastAPI is an excellent choice for the backend. It's lightweight, easy to code, and facilitates fast deployment. Additionally, it can handle a reasonable number of parallel requests, making it suitable for our needs.
 
 ## Frontend
-The interface only needs to display results without requiring complex UI or navigation. Streamlit is a great option here. It's designed for rapid development of simple user interfaces and is perfect for proof-of-concept (POC) applications. With built-in components, we can build a functional UI in under 100 lines of code.
+The interface only needs to display results without requiring complex UI or navigation. Streamlit is a great option here. It's designed for rapid development of simple user interfaces and is perfect for internal user or demo applications. With built-in components, we can build a functional UI in under 100 lines of code.
 
 ## Task Processing
 Machine learning tasks can be time-consuming and are CPU-bound. To manage this, a message queue is necessary to store queries, ensuring that none are lost during long processing times. RabbitMQ is ideal for this due to its simple setup and efficient processing. It ensures no query is missed while handling long-running tasks.
